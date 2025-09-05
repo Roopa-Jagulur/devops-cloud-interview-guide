@@ -1,1 +1,19 @@
+In Terraform statefile holds the important information, such as 
+- resource ID of the resources that it created, 
+- metadata of the resources 
+- IP addresses, if exists for the resources.
+- It also holds the information of dependencies between the resources.
+- And finally, it holds the information of last known state of the infrastructure.
 
+Now, because this information is not only important, but it is also very sensitive for the organization:
+- git repository is public [Definetly Big NO]
+- if the git repository is private [Still a lot of people can access this information]
+So to avoid this state, file is stored in remote backends like AWS S3/Azure Blob/GCS as well.
+
+- Define backend.tf -> here you provide the information of the remote backend (S3- name, region etc.,) that you're going to use.
+- Within Remote backnd i.e S3 in our case, we can enable versioning, security, Block access with RBAC and policies, enable back-up's 
+  and locking statefile within remote backend.
+
+Locking statefile - provides a great advantage because Terraform files cannot be executed by multiple DevOps engineers concurrently.
+if concurrently executed, Terraform will get confused on which request to process first. Hence, it is always good idea to
+lock statefile for clear logs and tracking purpose. 
