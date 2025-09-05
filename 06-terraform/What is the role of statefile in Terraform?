@@ -16,4 +16,5 @@ Next time, Terraform understand looking at statefile what user is asking it to u
 So It'll just make an API call to AWS to update that small change on the EC2 instance.
 
 note: If no state file maintained then terraform will not have reference on what been created on cloud provider, if I 
-run $Terraform apply, make API call then will may create / not create resources on cloud provider. Not cost effective approach.
+run $Terraform apply, make API call then it might create / not create resources on cloud provider. Not maintaining statefile is 
+not cost effective approach.
