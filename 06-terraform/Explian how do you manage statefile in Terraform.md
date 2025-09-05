@@ -13,3 +13,7 @@ accordingly.
 - When someone want to modify statefile then the statefile is locked on thier name and released lock after statefile usage. To avoid concurrent usage of statefile / to avoid confusing teraform which request to process.
 
 in our organisation: (for interview)
+we do not store statefile on our local machine / git due to sensitive information hence use remote backend and enable versioning,locking, security.
+
+
+<img width="544" height="492" alt="image" src="https://github.com/user-attachments/assets/47dbedaa-f201-41d8-9432-2d1eb58aa2e8" />
