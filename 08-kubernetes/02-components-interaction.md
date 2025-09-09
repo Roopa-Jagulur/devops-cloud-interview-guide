@@ -94,17 +94,18 @@ kubectl describe pod myapp
 ---
 
 ### 🔄 Summary of Interactions
-
+`kubectl apply -f pod.yaml`
 | Component        | Role in the Flow |
 |------------------|------------------|
-| `kubectl`        | Sends request to API |
-| `kube-apiserver` | Validates & stores the object |
-| `etcd`           | Stores desired state |
-| `kube-scheduler` | Chooses node for pod |
-| `kubelet`        | Pulls image and starts container |
-| `containerd`     | Runs the actual container |
-| `kube-proxy`     | Sets up network rules |
-| `CoreDNS`        | Resolves internal DNS |
+| `kubectl`        | Sends request to Control-plane API Server|
+| `kube-apiserver`-Control plane | Validates request(check user has right permissions to apply configuartions on the cluster and forwards request to 'Kube-scheduler) & stores the object in 'etcd' |
+| `etcd` -Control plane| Stores desired state |
+| `kube-scheduler`-Control plane  | Chooses node for pod via `kube-apiserver`.`kube-apiserver` talks to `kubelet'|
+| `kubelet`- Data Plane  | Invokes `containerd` (Worker node / data plane 'COntainer Runtime'), pulls image, starts and run the container within a pod|
+| `containerd` - Data Plane     | Runs the actual container |
+| `kube-proxy`- Data Plane      | Sets up network rules |
+| `CoreDNS` - Data Plane         | Resolves internal DNS |
+| `Controller Manager`-Control plane  |For some reason if Pod goes down then there is a replica set controller which takes care of the pod and this is managed by 'Controller Manager' |
 
 ---
 
