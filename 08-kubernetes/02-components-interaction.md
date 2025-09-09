@@ -117,3 +117,5 @@ kubectl describe pod myapp
 ### Key takeaway
 
 > "Running `kubectl apply` kicks off a coordinated flow involving the API server, etcd, scheduler, kubelet, and container runtime — all working together to ensure your pod reaches its desired state."
+
+<img width="652" height="856" alt="image" src="https://github.com/user-attachments/assets/e936de79-291a-4762-97c3-af84ff7bff01" />
