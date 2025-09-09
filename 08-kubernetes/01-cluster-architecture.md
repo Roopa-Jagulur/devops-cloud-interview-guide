@@ -74,3 +74,4 @@ Worker nodes are where actual application workloads (pods) are deployed.
 6. `kube-proxy` and `service` route traffic to the pod
 
 ---
+<img width="652" height="856" alt="image" src="https://github.com/user-attachments/assets/c5bcf497-3065-4582-9d71-544dc4a26315" />
